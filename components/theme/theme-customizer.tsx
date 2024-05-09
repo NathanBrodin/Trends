@@ -13,17 +13,17 @@ import { cn } from "@/lib/utils";
 import { useConfig } from "@/hooks/use-config";
 import { themes } from "@/registry/themes";
 import { useEffect, useState } from "react";
-import { Drawer, DrawerContent, DrawerTrigger } from "./ui/drawer";
-import { Button } from "./ui/button";
+import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer";
+import { Button } from "../ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "./ui/tooltip";
-import { Skeleton } from "./ui/skeleton";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { Label } from "./ui/label";
+} from "../ui/tooltip";
+import { Skeleton } from "../ui/skeleton";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Label } from "../ui/label";
 
 export function ThemeCustomizer() {
   const [config, setConfig] = useConfig();

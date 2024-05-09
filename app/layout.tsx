@@ -4,7 +4,7 @@ import LocalFont from "next/font/local";
 import "./globals.css";
 import "../public/themes/themes.css";
 import { siteConfig } from "@/config/site";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/theme/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],

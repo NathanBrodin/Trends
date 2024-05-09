@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "cosmos": "cosmos --expose-imports",
+    "cosmos-export": "cosmos-export --expose-imports"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
@@ -38,6 +40,8 @@
     "eslint-config-next": "14.2.3",
     "husky": "^9.0.11",
     "postcss": "^8",
+    "react-cosmos": "^6.1.1",
+    "react-cosmos-next": "^6.1.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
