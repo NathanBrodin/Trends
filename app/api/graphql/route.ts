@@ -1,15 +1,21 @@
-import { startServerAndCreateNextHandler } from "@as-integrations/next";
-import { ApolloServer } from "@apollo/server";
-import { NextRequest } from "next/server";
-import { resolvers, typeDefs } from "@/graphql/schema";
+// import { startServerAndCreateNextHandler } from "@as-integrations/next";
+// import { ApolloServer } from "@apollo/server";
+// import { NextRequest } from "next/server";
+// import { resolvers, typeDefs } from "@/graphql/schema";
 
-const server = new ApolloServer({
-  resolvers,
-  typeDefs,
-});
+import { NextResponse } from "next/server";
 
-const handler = startServerAndCreateNextHandler<NextRequest>(server, {
-  context: async (req) => ({ req }),
-});
+// const server = new ApolloServer({
+//   resolvers,
+//   typeDefs,
+// });
 
-export { handler as GET, handler as POST };
+// const handler = startServerAndCreateNextHandler<NextRequest>(server, {
+//   context: async (req) => ({ req }),
+// });
+
+// export { handler as GET, handler as POST };
+
+export async function GET(request: Request) {
+  return NextResponse.json({ hello: "world" }, { status: 200 });
+}

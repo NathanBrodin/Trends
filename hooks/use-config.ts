@@ -5,7 +5,7 @@ import { Theme } from "@/registry/themes";
 import { Currency } from "@/registry/currencies";
 
 type Config = {
-  currency: Currency["name"];
+  currency: Currency;
   theme: Theme["name"];
   radius: number;
 };

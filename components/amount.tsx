@@ -25,6 +25,8 @@ export function Amount({ amount, currency, className, animated }: AmountProps) {
   const formatedAmount = new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: config.currency,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   }).format(convert(amount, currency, config.currency));
 
   const formattedAmounts: { currency: Currency; amount: string }[] =
@@ -34,6 +36,8 @@ export function Amount({ amount, currency, className, animated }: AmountProps) {
         amount: new Intl.NumberFormat("en-IN", {
           style: "currency",
           currency: c,
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
         }).format(convert(amount, currency, c)),
       };
     });
@@ -44,7 +48,7 @@ export function Amount({ amount, currency, className, animated }: AmountProps) {
         <TooltipTrigger>
           {animated ? (
             <AnimatedAmount
-              amount={amount}
+              amount={convert(amount, currency, config.currency)}
               currency={config.currency}
               className={className}
             />
@@ -79,6 +83,8 @@ export function AnimatedAmount({ amount, currency, className }: AmountProps) {
     new Intl.NumberFormat("en-IN", {
       style: "currency",
       currency: currency,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(current),
   );
 
