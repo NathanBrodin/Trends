@@ -4,7 +4,6 @@ import LocalFont from "next/font/local";
 import "./globals.css";
 import "../public/themes/themes.css";
 import { siteConfig } from "@/config/site";
-import { ThemeProvider } from "@/components/theme/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -78,19 +77,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={[inter.variable, calSans.variable].join(" ")}
+      className={[inter.variable, calSans.variable, "flex justify-center"].join(
+        " ",
+      )}
       suppressHydrationWarning
     >
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      </body>
+      <body className="max-w-7xl w-full">{children}</body>
     </html>
   );
 }

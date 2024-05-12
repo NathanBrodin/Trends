@@ -1,17 +1,13 @@
-import AmountCard from "@/components/amount-card";
-import { ThemeCustomizer } from "@/components/theme/theme-customizer";
-import { DollarSign } from "lucide-react";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+  const authenticated = true;
+
+  if (authenticated) redirect("/overview");
+
   return (
-    <main className="flex flex-col gap-12">
-      <ThemeCustomizer />
-      <AmountCard
-        title="Balance"
-        icon={DollarSign}
-        amount={1200}
-        diff="+20.1% from last month"
-      />
+    <main className="flex items-center justify-center">
+      <h1>Trends</h1>
     </main>
   );
 }
