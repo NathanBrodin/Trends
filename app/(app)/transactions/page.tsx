@@ -1,3 +1,3 @@
 export default function Page() {
-  return <div>Transaction and stuff</div>;
+  return <div className="h-full">Transaction and stuff</div>;
 }

@@ -8,18 +8,18 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
-      <ThemeProvider
+    <div>
+      {/* <ThemeProvider
         attribute="class"
         defaultTheme="system"
         enableSystem
         disableTransitionOnChange
-      >
-        <ApolloWrapper>
-          <Header />
-          {children}
-        </ApolloWrapper>
-      </ThemeProvider>
-    </section>
+      > */}
+      <ApolloWrapper>
+        <Header />
+        {children}
+      </ApolloWrapper>
+      {/* </ThemeProvider> */}
+    </div>
   );
 }
