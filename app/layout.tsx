@@ -4,6 +4,7 @@ import LocalFont from "next/font/local";
 import "./globals.css";
 import "../public/themes/themes.css";
 import { siteConfig } from "@/config/site";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -82,7 +83,10 @@ export default function RootLayout({
       )}
       suppressHydrationWarning
     >
-      <body className="max-w-7xl w-full">{children}</body>
+      <body className="max-w-7xl w-full">
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

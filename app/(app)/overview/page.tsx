@@ -1,4 +1,4 @@
-import AmountCard from "@/components/amount-card";
+import { AmountCard } from "@/components/amount-card";
 import {
   HandCoinsIcon,
   LandmarkIcon,
@@ -6,7 +6,14 @@ import {
   ReceiptTextIcon,
 } from "lucide-react";
 
-export default function OverviewPage() {
+async function getData() {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  return { data: "Hello world" };
+}
+
+export default async function OverviewPage() {
+  const data = await getData();
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 p-4 pt-3 sm:p-8 sm:pt-6">
       <AmountCard

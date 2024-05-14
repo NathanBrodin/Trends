@@ -98,3 +98,31 @@ export function AnimatedAmount({ amount, currency, className }: AmountProps) {
 
   return <motion.span className={className}>{display}</motion.span>;
 }
+
+export function AmountSkeleton({ className }: { className: string }) {
+  const [config] = useConfig();
+
+  const formatedAmount = new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: config.currency,
+  }).format(0);
+
+  return (
+    <span className={cn("text-muted-foreground animate-pulse", className)}>
+      {formatedAmount}
+    </span>
+  );
+}
+
+export function AmountError({ className }: { className: string }) {
+  const [config] = useConfig();
+
+  const formatedAmount = new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: config.currency,
+  }).format(0);
+
+  return (
+    <span className={cn("text-red-400", className)}>{formatedAmount}</span>
+  );
+}
