@@ -8,7 +8,7 @@ import Nav from "./nav";
 
 export default function Header() {
   return (
-    <header className="flex-1 space-y-4 p-4 pt-3 sm:p-8 sm:pt-6">
+    <header className="space-y-4 p-4 pt-3 sm:p-8 sm:pt-6">
       <div className="flex justify-between items-end space-y-2">
         <h2 className="text-4xl font-display font-bold tracking-tight">
           Dashboard

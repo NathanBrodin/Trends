@@ -8,18 +8,18 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      {/* <ThemeProvider
+    <div className="h-screen flex flex-col">
+      <ThemeProvider
         attribute="class"
         defaultTheme="system"
         enableSystem
         disableTransitionOnChange
-      > */}
-      <ApolloWrapper>
-        <Header />
-        {children}
-      </ApolloWrapper>
-      {/* </ThemeProvider> */}
+      >
+        <ApolloWrapper>
+          <Header />
+          <main className="flex-1">{children}</main>
+        </ApolloWrapper>
+      </ThemeProvider>
     </div>
   );
 }

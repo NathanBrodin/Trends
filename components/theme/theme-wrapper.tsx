@@ -18,7 +18,7 @@ export function ThemeWrapper({
     <div
       className={cn(
         `theme-${defaultTheme || config.theme}`,
-        "w-full",
+        "w-full flex flex-col flex-1",
         className,
       )}
       style={

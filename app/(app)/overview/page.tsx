@@ -9,7 +9,7 @@ import { RecentTransactionsCard } from "./_components/recent-transactions/recent
 import { Card } from "@/components/ui/card";
 
 async function getData() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 0));
 
   return { data: "Hello world" };
 }
@@ -17,7 +17,7 @@ async function getData() {
 export default async function OverviewPage() {
   const data = await getData();
   return (
-    <div className="space-y-4 p-4 sm:p-8">
+    <div className="space-y-4 p-4 sm:p-8 h-full flex flex-col">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <AmountCard
           title="Balance"
@@ -48,10 +48,10 @@ export default async function OverviewPage() {
           animated
         />
       </div>
-      {/* <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 h-full">
         <Card className="col-span-4"></Card>
         <RecentTransactionsCard />
-      </div> */}
+      </div>
     </div>
   );
 }
