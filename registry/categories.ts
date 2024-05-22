@@ -1,8 +1,20 @@
+import { Home, LucideIcon, UtensilsCrossed } from "lucide-react";
+
 export const categories = [
-  "House",
-  "Food",
-  "Student Loan",
-  "Transport",
+  {
+    name: "House",
+    icon: Home,
+    color: "#eb4034",
+  },
+  {
+    name: "Food",
+    icon: UtensilsCrossed,
+    color: "#33333",
+  },
 ] as const;
 
-export type Category = (typeof categories)[number];
+export type Category = {
+  name: string;
+  icon: LucideIcon;
+  color?: string;
+};
