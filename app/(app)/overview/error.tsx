@@ -1,6 +1,6 @@
 "use client";
 
-import { AmountCardError } from "@/components/amount-card";
+import { AmountCardError } from "@/components/amount/amount-card";
 import {
   HandCoinsIcon,
   LandmarkIcon,

@@ -1,4 +1,4 @@
-import { AmountCardSkeleton } from "@/components/amount-card";
+import { AmountCardSkeleton } from "@/components/amount/amount-card";
 import {
   HandCoinsIcon,
   LandmarkIcon,

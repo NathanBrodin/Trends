@@ -1,7 +1,7 @@
 import { LucideIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Amount, AmountError, AmountSkeleton } from "./amount";
-import { Skeleton } from "./ui/skeleton";
+import { Skeleton } from "../ui/skeleton";
 
 type AmountCardProps = {
   title: string;

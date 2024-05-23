@@ -21,6 +21,10 @@ export type RecentTransaction = {
   bankAccountName?: string;
 };
 
+export type CarouselProps = {
+  handleCarouselChange: () => void;
+};
+
 export function RecentTransactionsCard() {
   const [api, setApi] = useState<CarouselApi>();
 
