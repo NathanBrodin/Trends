@@ -1,13 +1,4 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Category, categories } from "@/registry/categories";
-import { PlusIcon } from "lucide-react";
 import { RecentTransaction } from "./recent-transactions-card";
 import { cn } from "@/lib/utils";
 
@@ -80,32 +71,15 @@ function getData(): RecentTransaction[] {
   ];
 }
 
-export default function RecentTransactionList({
-  handleCarouselChange,
-}: {
-  handleCarouselChange: () => void;
-}) {
+export default function RecentTransactionList() {
   const data = getData();
 
   return (
-    <Card className="pb-2 h-full">
-      <CardHeader className="flex-row justify-between align-top p-6">
-        <div className="space-y-1.5">
-          <CardTitle className="text-lg">Recent Transactions</CardTitle>
-          <CardDescription>You spent a lot of money recently.</CardDescription>
-        </div>
-        <Button variant="outline" size="icon" onClick={handleCarouselChange}>
-          <PlusIcon />
-        </Button>
-      </CardHeader>
-      <CardContent className="px-0 flex-1 h-full overflow-scroll">
-        <div className="max-h-0">
-          {data.map((transaction) => (
-            <RecentTransactionItem {...transaction} key={transaction.id} />
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+    <div className="max-h-0">
+      {data.map((transaction) => (
+        <RecentTransactionItem {...transaction} key={transaction.id} />
+      ))}
+    </div>
   );
 }
 
