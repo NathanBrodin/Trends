@@ -28,6 +28,7 @@ export default async function OverviewPage() {
         />
         <AmountCard
           title="Income"
+          link="income"
           icon={HandCoinsIcon}
           amount={2878}
           diff="20 working days in June"

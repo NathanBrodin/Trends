@@ -8,19 +8,17 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Loader2 } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 import { z } from "zod";
 import { DatePicker } from "@/components/date-picker";
-import { Button } from "@/components/ui/button";
 import { useConfig } from "@/hooks/use-config";
 import { useState } from "react";
-import { AnimatedState } from "@/components/animate-state";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "@/components/ui/use-toast";
 import { AmountFormField } from "@/components/amount/amount-form-field";
+import { SubmitButton } from "@/components/submit-button";
 
 const formSchema = z.object({
   name: z.string({ message: "A transaction name is required" }),
@@ -74,18 +72,6 @@ export function RecentTransactionForm({ onSucess }: { onSucess: () => void }) {
       setFormState("idle");
     }, 2500);
   }
-
-  const submitButtonContent = {
-    idle: "Create new transaction",
-    loading: (
-      <div className="flex items-center">
-        <Loader2 className="mr-2 size-4 animate-spin" />
-        Please wait
-      </div>
-    ),
-    success: "Transaction created!",
-    error: "Sorry, unsuccessful request",
-  };
 
   return (
     <Form {...form}>
@@ -169,13 +155,11 @@ export function RecentTransactionForm({ onSucess }: { onSucess: () => void }) {
             </FormItem>
           )}
         />
-        <Button
-          type="submit"
-          disabled={formState === "loading"}
-          variant={formState === "error" ? "destructive" : "default"}
-        >
-          <AnimatedState>{submitButtonContent[formState]}</AnimatedState>
-        </Button>
+        <SubmitButton
+          state={formState}
+          idleContent="Create new transaction"
+          successContent="Transaction created!"
+        />
       </form>
     </Form>
   );

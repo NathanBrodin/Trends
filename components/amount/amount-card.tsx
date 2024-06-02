@@ -2,9 +2,11 @@ import { LucideIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Amount, AmountError, AmountSkeleton } from "./amount";
 import { Skeleton } from "../ui/skeleton";
+import Link from "next/link";
 
 type AmountCardProps = {
   title: string;
+  link?: string;
   icon: LucideIcon;
   amount: number;
   diff?: string;
@@ -13,6 +15,7 @@ type AmountCardProps = {
 
 export function AmountCard({
   title,
+  link,
   icon: Icon,
   amount,
   diff,
@@ -20,10 +23,20 @@ export function AmountCard({
 }: AmountCardProps) {
   return (
     <Card>
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
-        <Icon className="h-4 w-4 text-muted-foreground" />
-      </CardHeader>
+      {link && (
+        <Link href={link}>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">{title}</CardTitle>
+            <Icon className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+        </Link>
+      )}
+      {!link && (
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardTitle className="text-sm font-medium">{title}</CardTitle>
+          <Icon className="h-4 w-4 text-muted-foreground" />
+        </CardHeader>
+      )}
       <CardContent>
         <Amount
           amount={amount}
