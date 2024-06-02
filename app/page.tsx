@@ -1,9 +1,12 @@
 import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
 export default async function Home() {
-  const authenticated = true;
+  const { userId } = auth();
 
-  if (authenticated) redirect("/overview");
+  if (userId) {
+    redirect("/overview");
+  }
 
   return (
     <main className="flex items-center justify-center">

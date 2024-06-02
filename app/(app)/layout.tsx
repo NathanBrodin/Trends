@@ -1,12 +1,15 @@
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ApolloWrapper } from "@/graphql/wrapper";
 import Header from "./_components/header";
+import { auth } from "@clerk/nextjs/server";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  auth().protect();
+
   return (
     <div className="h-screen flex flex-col">
       <ThemeProvider

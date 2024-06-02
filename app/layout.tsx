@@ -5,6 +5,7 @@ import "./globals.css";
 import "../public/themes/themes.css";
 import { siteConfig } from "@/config/site";
 import { Toaster } from "@/components/ui/toaster";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -76,17 +77,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={[inter.variable, calSans.variable, "flex justify-center"].join(
-        " ",
-      )}
-      suppressHydrationWarning
-    >
-      <body className="max-w-7xl w-full flex flex-col">
-        {children}
-        <Toaster />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html
+        lang="en"
+        className={[
+          inter.variable,
+          calSans.variable,
+          "flex justify-center",
+        ].join(" ")}
+        suppressHydrationWarning
+      >
+        <body className="max-w-7xl w-full flex flex-col">
+          {children}
+          <Toaster />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
