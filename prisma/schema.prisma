@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Currency {
+  id          String        @id @default(cuid())
+  code        String        @db.Char(3)
+  userId      String
+  BankAccount BankAccount[]
+  Transaction Transaction[]
+  Income      Income[]
+
+  @@unique([userId, code], name: "uniqueCurrency")
+}
+
+model BankAccount {
+  id           String @id @default(cuid())
+  name         String
+  amount       Float  @default(0.0)
+  currencyId   String
+  interestRate Float  @default(0.0)
+  userId       String
+
+  Currency    Currency      @relation(fields: [currencyId], references: [id])
+  Transaction Transaction[]
+}
+
+model Transaction {
+  id            String   @id @default(cuid())
+  amount        Float    @default(0.0)
+  currencyId    String
+  bankAccountId String
+  userId        String
+  date          DateTime @default(now())
+
+  Currency    Currency    @relation(fields: [currencyId], references: [id])
+  BankAccount BankAccount @relation(fields: [bankAccountId], references: [id])
+
+  @@index([date])
+}
+
+model Income {
+  id           String @id @default(cuid())
+  hourly       Float  @default(0.0)
+  monthly      Float  @default(0.0)
+  yearly       Float  @default(0.0)
+  hoursPerWeek Int    @default(0)
+  currencyId   String
+  taxRate      Float  @default(0.0)
+  userId       String
+
+  Currency Currency @relation(fields: [currencyId], references: [id])
+}

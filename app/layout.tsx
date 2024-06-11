@@ -87,7 +87,7 @@ export default function RootLayout({
         ].join(" ")}
         suppressHydrationWarning
       >
-        <body className="max-w-7xl w-full flex flex-col">
+        <body className="w-full flex flex-col">
           {children}
           <Toaster />
         </body>
