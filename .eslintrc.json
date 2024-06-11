@@ -1,17 +1,3 @@
 {
-  "extends": ["next/core-web-vitals"],
-  "overrides": [
-    {
-      "files": ["cosmos.imports.ts"],
-      "rules": {
-        "import/extensions": "off"
-      }
-    },
-    {
-      "files": ["*.fixture.{ts,tsx}", "**/__fixtures__/**"],
-      "rules": {
-        "react-hooks/rules-of-hooks": "off"
-      }
-    }
-  ]
+  "extends": "next/core-web-vitals"
 }

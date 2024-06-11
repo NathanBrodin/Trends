@@ -108,7 +108,7 @@ export function AmountSkeleton({ className }: { className: string }) {
   }).format(0);
 
   return (
-    <span className={cn("text-muted-foreground animate-pulse", className)}>
+    <span className={cn("animate-pulse text-muted-foreground", className)}>
       {formatedAmount}
     </span>
   );

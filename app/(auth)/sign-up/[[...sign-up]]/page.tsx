@@ -18,20 +18,20 @@ import { cn } from "@/lib/utils";
 
 export default function SignUpPage() {
   return (
-    <div className="w-full lg:grid  lg:grid-cols-2 h-screen">
-      <div className="hidden lg:block relative bg-light-gradient">
+    <div className="h-screen w-full lg:grid lg:grid-cols-2">
+      <div className="relative hidden bg-light-gradient lg:block">
         <div
           className="h-full w-full"
           style={{ backgroundImage: "url('/egg-shell-noise.png')" }}
         />
       </div>
-      <div className="w-full h-full flex items-center justify-center">
+      <div className="flex h-full w-full items-center justify-center">
         <SignUp.Root>
           <Clerk.Loading>
             {(isGlobalLoading) => (
               <>
                 <SignUp.Step name="start">
-                  <Card className="w-full sm:w-96 border-none shadow-none">
+                  <Card className="w-full border-none shadow-none sm:w-96">
                     <CardHeader className="flex items-center">
                       <CardTitle>Create your account</CardTitle>
                       <CardDescription>
@@ -131,7 +131,7 @@ export default function SignUpPage() {
                 </SignUp.Step>
 
                 <SignUp.Step name="continue">
-                  <Card className="w-full sm:w-96 border-none shadow-none">
+                  <Card className="w-full border-none shadow-none sm:w-96">
                     <CardHeader>
                       <CardTitle>Continue registration</CardTitle>
                     </CardHeader>
@@ -168,7 +168,7 @@ export default function SignUpPage() {
 
                 <SignUp.Step name="verifications">
                   <SignUp.Strategy name="code">
-                    <Card className="w-full sm:w-96 border-none shadow-none">
+                    <Card className="w-full border-none shadow-none sm:w-96">
                       <CardHeader>
                         <CardTitle>Verify your email</CardTitle>
                         <CardDescription>
@@ -206,7 +206,7 @@ export default function SignUpPage() {
                                         {value}
                                         {status === "cursor" && (
                                           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                                            <div className="animate-caret-blink h-4 w-px bg-foreground duration-1000" />
+                                            <div className="h-4 w-px animate-caret-blink bg-foreground duration-1000" />
                                           </div>
                                         )}
                                       </div>

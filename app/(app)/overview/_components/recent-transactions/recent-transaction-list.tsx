@@ -89,10 +89,10 @@ type RecentTransactionItemProps = {
 
 function RecentTransactionItem({ category }: RecentTransactionItemProps) {
   return (
-    <div className="flex items-center transition-colors hover:bg-muted/50 py-3 px-6 rounded-lg">
+    <div className="flex items-center rounded-lg px-6 py-3 transition-colors hover:bg-muted/50">
       <div
         className={cn(
-          "size-9 flex items-center justify-center rounded-full p-2",
+          "flex size-9 items-center justify-center rounded-full p-2",
           `bg-red-500/10`,
         )}
       >
@@ -100,7 +100,7 @@ function RecentTransactionItem({ category }: RecentTransactionItemProps) {
       </div>
       <div className="ml-4 space-y-1">
         <p className="text-sm font-medium leading-none">House rent</p>
-        <p className="text-sm text-muted-foreground flex gap-1">
+        <p className="flex gap-1 text-sm text-muted-foreground">
           <span>14/05</span>
           {" - "} <span>Lydia</span>
         </p>

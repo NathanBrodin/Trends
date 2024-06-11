@@ -9,11 +9,11 @@ import Nav from "./nav";
 export default function Header() {
   return (
     <header className="space-y-4 p-4 pt-3 sm:p-8 sm:pt-6">
-      <div className="flex justify-between items-end space-y-2">
-        <h2 className="text-4xl font-display font-bold tracking-tight">
+      <div className="flex items-end justify-between space-y-2">
+        <h2 className="font-display text-4xl font-bold tracking-tight">
           Dashboard
         </h2>
-        <div className="space-x-2 hidden sm:flex">
+        <div className="hidden space-x-2 sm:flex">
           <AccountSwitcher />
           <ThemeCustomizer />
         </div>
@@ -25,12 +25,12 @@ export default function Header() {
               </Button>
             </DrawerTrigger>
             <DrawerContent className="flex flex-col gap-y-4 px-4 py-8">
-              <div className="flex gap-x-2 items-center">
+              <div className="flex items-center gap-x-2">
                 <span className="text-sm font-semibold">Change Account:</span>
                 <AccountSwitcher />
               </div>
               <Separator />
-              <div className="flex gap-x-2 items-center">
+              <div className="flex items-center gap-x-2">
                 <span className="text-sm font-semibold">Customize theme:</span>
                 <ThemeCustomizer />
               </div>

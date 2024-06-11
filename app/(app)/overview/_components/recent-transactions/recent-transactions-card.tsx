@@ -37,8 +37,8 @@ export function RecentTransactionsCard() {
     <Carousel className="col-span-3 flex" setApi={setApi}>
       <CarouselContent className="h-full">
         <CarouselItem className="h-full">
-          <Card className="pb-2 h-full">
-            <CardHeader className="flex-row justify-between align-top p-6">
+          <Card className="h-full pb-2">
+            <CardHeader className="flex-row justify-between p-6 align-top">
               <div className="space-y-1.5">
                 <CardTitle className="text-lg">Recent Transactions</CardTitle>
                 <CardDescription>
@@ -53,14 +53,14 @@ export function RecentTransactionsCard() {
                 <PlusIcon />
               </Button>
             </CardHeader>
-            <CardContent className="px-0 flex-1 h-full overflow-scroll">
+            <CardContent className="h-full flex-1 overflow-scroll px-0">
               <RecentTransactionList />
             </CardContent>
           </Card>
         </CarouselItem>
         <CarouselItem className="h-full">
-          <Card className="pb-2 h-full">
-            <CardHeader className="flex-row justify-between align-top p-6">
+          <Card className="h-full pb-2">
+            <CardHeader className="flex-row justify-between p-6 align-top">
               <div className="space-y-1.5">
                 <CardTitle className="text-lg">
                   Create a new Transactions

@@ -18,20 +18,20 @@ import { cn } from "@/lib/utils";
 
 export default function SignInPage() {
   return (
-    <div className="w-full lg:grid  lg:grid-cols-2 h-screen">
-      <div className="hidden lg:block relative bg-light-gradient">
+    <div className="h-screen w-full lg:grid lg:grid-cols-2">
+      <div className="relative hidden bg-light-gradient lg:block">
         <div
           className="h-full w-full"
           style={{ backgroundImage: "url('/egg-shell-noise.png')" }}
         />
       </div>
-      <div className="w-full h-full flex items-center justify-center">
+      <div className="flex h-full w-full items-center justify-center">
         <SignIn.Root>
           <Clerk.Loading>
             {(isGlobalLoading) => (
               <>
                 <SignIn.Step name="start">
-                  <Card className="w-full sm:w-96 border-none shadow-none">
+                  <Card className="w-full border-none shadow-none sm:w-96">
                     <CardHeader className="flex items-center">
                       <CardTitle>Sign in to Trends</CardTitle>
                       <CardDescription>
@@ -123,7 +123,7 @@ export default function SignInPage() {
                 </SignIn.Step>
 
                 <SignIn.Step name="choose-strategy">
-                  <Card className="w-full sm:w-96 border-none shadow-none">
+                  <Card className="w-full border-none shadow-none sm:w-96">
                     <CardHeader>
                       <CardTitle>Use another method</CardTitle>
                       <CardDescription>
@@ -173,7 +173,7 @@ export default function SignInPage() {
 
                 <SignIn.Step name="verifications">
                   <SignIn.Strategy name="password">
-                    <Card className="w-full sm:w-96 border-none shadow-none">
+                    <Card className="w-full border-none shadow-none sm:w-96">
                       <CardHeader>
                         <CardTitle>Check your email</CardTitle>
                         <CardDescription>
@@ -220,7 +220,7 @@ export default function SignInPage() {
                   </SignIn.Strategy>
 
                   <SignIn.Strategy name="email_code">
-                    <Card className="w-full sm:w-96 border-none shadow-none">
+                    <Card className="w-full border-none shadow-none sm:w-96">
                       <CardHeader>
                         <CardTitle>Check your email</CardTitle>
                         <CardDescription>
@@ -257,7 +257,7 @@ export default function SignInPage() {
                                       {value}
                                       {status === "cursor" && (
                                         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                                          <div className="animate-caret-blink h-4 w-px bg-foreground duration-1000" />
+                                          <div className="h-4 w-px animate-caret-blink bg-foreground duration-1000" />
                                         </div>
                                       )}
                                     </div>

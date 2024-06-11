@@ -10,7 +10,7 @@ export default function DashboardLayout({
   auth().protect();
 
   return (
-    <div className="h-screen max-w-7xl flex flex-col">
+    <div className="flex h-screen max-w-7xl flex-col">
       <ThemeProvider
         attribute="class"
         defaultTheme="system"

@@ -34,7 +34,7 @@ export default function Error({
   }, [error, toast, reset]);
 
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 p-4 sm:p-8">
+    <div className="grid gap-4 p-4 sm:p-8 md:grid-cols-2 lg:grid-cols-4">
       <AmountCardError title="Balance" icon={LandmarkIcon} />
       <AmountCardError title="Income" icon={HandCoinsIcon} />
       <AmountCardError title="Expenses" icon={ReceiptTextIcon} />

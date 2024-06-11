@@ -25,15 +25,15 @@ export function AmountFormField({
   const [config] = useConfig();
 
   return (
-    <div className="flex items-center h-10 text-sm w-full rounded-md border border-input overflow-hidden focus-within:border-2 focus-within:border-ring">
+    <div className="flex h-10 w-full items-center overflow-hidden rounded-md border border-input text-sm focus-within:border-2 focus-within:border-ring">
       <FormField
         control={control}
         name={amountName}
         render={({ field }) => (
-          <FormItem className="space-y-0 w-full h-full">
+          <FormItem className="h-full w-full space-y-0">
             <FormControl>
               <input
-                className="h-full w-full px-2 py-1 focus:outline-0 placeholder:text-muted-foreground"
+                className="h-full w-full px-2 py-1 placeholder:text-muted-foreground focus:outline-0"
                 placeholder={placeholder}
                 type="number"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,13 +50,13 @@ export function AmountFormField({
         control={control}
         name={currencyName}
         render={({ field }) => (
-          <FormItem className="space-y-0 h-full">
+          <FormItem className="h-full space-y-0">
             <FormControl>
               <Select
                 onValueChange={field.onChange}
                 defaultValue={config.currency}
               >
-                <Trigger className="h-full bg-muted text-muted-foreground flex gap-2 items-center px-2 pl-4 border-l">
+                <Trigger className="flex h-full items-center gap-2 border-l bg-muted px-2 pl-4 text-muted-foreground">
                   <SelectValue placeholder={config.currency} />
                   <ChevronDown className="size-4" />
                 </Trigger>
