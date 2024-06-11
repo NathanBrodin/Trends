@@ -68,10 +68,7 @@
         "trends_bank_accounts_user_id_name_unique": {
           "name": "trends_bank_accounts_user_id_name_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "user_id",
-            "name"
-          ]
+          "columns": ["user_id", "name"]
         }
       }
     },
@@ -159,12 +156,8 @@
           "name": "trends_incomes_bank_account_id_trends_bank_accounts_id_fk",
           "tableFrom": "trends_incomes",
           "tableTo": "trends_bank_accounts",
-          "columnsFrom": [
-            "bank_account_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["bank_account_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -235,12 +228,8 @@
           "name": "trends_transactions_bank_account_id_trends_bank_accounts_id_fk",
           "tableFrom": "trends_transactions",
           "tableTo": "trends_bank_accounts",
-          "columnsFrom": [
-            "bank_account_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["bank_account_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -253,11 +242,7 @@
     "public.currency": {
       "name": "currency",
       "schema": "public",
-      "values": [
-        "NOK",
-        "EUR",
-        "USD"
-      ]
+      "values": ["NOK", "EUR", "USD"]
     }
   },
   "schemas": {},

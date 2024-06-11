@@ -8,6 +8,6 @@ export async function createBankAccount(data: InsertBankAccount) {
 
 export async function getBankAccountsByUserId(
   id: SelectBankAccount["userId"],
-): Promise<SelectBankAccount> {
+): Promise<SelectBankAccount[]> {
   return db.select().from(bankAccounts).where(eq(bankAccounts.userId, id));
 }

@@ -193,12 +193,8 @@
           "name": "trends_transactions_bank_account_id_trends_bank_accounts_id_fk",
           "tableFrom": "trends_transactions",
           "tableTo": "trends_bank_accounts",
-          "columnsFrom": [
-            "bank_account_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["bank_account_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -211,11 +207,7 @@
     "public.currency": {
       "name": "currency",
       "schema": "public",
-      "values": [
-        "NOK",
-        "EUR",
-        "USD"
-      ]
+      "values": ["NOK", "EUR", "USD"]
     }
   },
   "schemas": {},
