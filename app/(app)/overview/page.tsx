@@ -21,6 +21,7 @@ export default async function OverviewPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <AmountCard
           title="Balance"
+          link="accounts"
           icon={LandmarkIcon}
           amount={4385}
           diff="+20.1% from last month"

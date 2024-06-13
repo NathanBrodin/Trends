@@ -2,11 +2,10 @@ import { ReactNode } from "react";
 import { Button } from "./ui/button";
 import { Loader2Icon } from "lucide-react";
 import { AnimatedState } from "./animate-state";
-
-type State = "idle" | "loading" | "success" | "error";
+import { HookActionStatus } from "next-safe-action/hooks";
 
 type SubmitButtonProps = {
-  state: State;
+  state: HookActionStatus;
   idleContent?: ReactNode;
   loadingContent?: ReactNode;
   successContent?: ReactNode;
@@ -27,16 +26,16 @@ export function SubmitButton({
 }: SubmitButtonProps) {
   const content = {
     idle: idleContent,
-    loading: loadingContent,
-    success: successContent,
-    error: errorContent,
+    executing: loadingContent,
+    hasSucceeded: successContent,
+    hasErrored: errorContent,
   };
 
   return (
     <Button
       type="submit"
-      disabled={state === "loading"}
-      variant={state === "error" ? "destructive" : "default"}
+      disabled={state === "executing"}
+      variant={state === "hasErrored" ? "destructive" : "default"}
     >
       <AnimatedState>{content[state]}</AnimatedState>
     </Button>

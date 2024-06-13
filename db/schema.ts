@@ -9,6 +9,7 @@ import {
   unique,
 } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
+import { z } from "zod";
 
 export const createTable = pgTableCreator((name) => `trends_${name}`);
 
@@ -19,13 +20,14 @@ export const bankAccounts = createTable(
   {
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }).notNull(),
-    amount: real("amount").default(0.0),
+    balance: real("balance").default(0.0),
     currency: currencyEnum("currency").notNull(),
     interestRate: real("interest_rate").default(0.0),
     userId: varchar("user_id", { length: 256 }).notNull(),
     createdAt: timestamp("created_at").notNull().defaultNow(),
     updatedAt: timestamp("updated_at")
       .notNull()
+      .defaultNow()
       .$onUpdate(() => new Date()),
   },
   (t) => ({
@@ -34,8 +36,19 @@ export const bankAccounts = createTable(
 );
 
 export type InsertBankAccount = typeof bankAccounts.$inferInsert;
-export const insertBankAccountSchema = createInsertSchema(bankAccounts).omit({
+export const InsertBankAccountSchema = createInsertSchema(bankAccounts, {
+  name: z
+    .string({
+      required_error: "Account name is required",
+    })
+    .max(256),
+  balance: z.number(),
+  interestRate: z.number().min(0).max(100),
+}).omit({
+  id: true,
   userId: true,
+  createdAt: true,
+  updatedAt: true,
 });
 export type SelectBankAccount = typeof bankAccounts.$inferSelect;
 
@@ -49,6 +62,7 @@ export const transactions = createTable("transactions", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at")
     .notNull()
+    .defaultNow()
     .$onUpdate(() => new Date()),
 });
 
@@ -69,6 +83,7 @@ export const incomes = createTable("incomes", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at")
     .notNull()
+    .defaultNow()
     .$onUpdate(() => new Date()),
 });
 
