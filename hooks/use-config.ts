@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
 import { Theme } from "@/registry/themes";
-import { Currency } from "@/registry/currencies";
+import { Currency } from "@/db/schema";
 
 type Config = {
   currency: Currency;

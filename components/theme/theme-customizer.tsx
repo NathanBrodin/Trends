@@ -11,7 +11,7 @@ import { Skeleton } from "../ui/skeleton";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Label } from "../ui/label";
 import { Paintbrush } from "lucide-react";
-import { currencies } from "@/registry/currencies";
+import { currencies } from "@/db/schema";
 
 export function ThemeCustomizer() {
   return (

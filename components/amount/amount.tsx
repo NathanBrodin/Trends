@@ -7,10 +7,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Currency, currencies, convert } from "@/registry/currencies";
 import { cn } from "@/lib/utils";
 import { motion, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Currency, currencies } from "@/db/schema";
+import { convert } from "@/lib/currencies";
 
 type AmountProps = {
   amount: number;

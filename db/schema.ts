@@ -14,6 +14,8 @@ import { z } from "zod";
 export const createTable = pgTableCreator((name) => `trends_${name}`);
 
 export const currencyEnum = pgEnum("currency", ["NOK", "EUR", "USD"]);
+export type Currency = (typeof currencyEnum.enumValues)[number];
+export const currencies = currencyEnum.enumValues;
 
 export const bankAccounts = createTable(
   "bank_accounts",
