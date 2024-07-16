@@ -12,7 +12,7 @@ type Config = {
 
 const configAtom = atomWithStorage<Config>("config", {
   currency: "EUR",
-  theme: "zinc",
+  theme: "stone",
   radius: 0.5,
 });
 
